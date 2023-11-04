@@ -14,43 +14,43 @@ const BoxShadow = () => {
   const [color, setColor] = useState('#000000')
   const boxShadowCode = `${shadowX}px ${shadowY}px ${blur}px ${color}`
 
-  const boxShadowStyle = css({
-    width: "170px",
-    height: "170px",
-    border: "1px solid black",
-    backgroundColor: "white",
-    boxShadow: boxShadowCode,
-  });
+  // const boxShadowStyle = css({
+  //   width: "170px",
+  //   height: "170px",
+  //   border: "1px solid black",
+  //   backgroundColor: "white",
+  //   boxShadow: boxShadowCode,
+  // });
 
-  const copyToClipBoard = async () => {
-    try {
-      await navigator.clipboard.writeText(boxShadowCode);
-      alert('コピーされました。');
-    } catch (error) {
-      console.error('コピーに失敗しました。', error);
-    }
-  }
+  // const copyToClipBoard = async () => {
+  //   try {
+  //     await navigator.clipboard.writeText(boxShadowCode);
+  //     alert('コピーされました。');
+  //   } catch (error) {
+  //     console.error('コピーに失敗しました。', error);
+  //   }
+  // }
 
-  const sendFavBoxShadow = async () => {
-    const { uid, displayName } = user;
+  // const sendFavBoxShadow = async () => {
+  //   const { uid, displayName } = user;
 
-    const userDocRef = doc(db, "user", uid);
+  //   const userDocRef = doc(db, "user", uid);
 
-    const userDocSnap = await getDoc(userDocRef);
+  //   const userDocSnap = await getDoc(userDocRef);
 
-    if (!userDocSnap.exists()) {
-      await setDoc(userDocRef, {
-        displayName,
-        boxShadowCode,
-      })
-    } else {
-      await updateDoc(userDocRef, {
-        boxShadowCode,
-      })
-    }
+  //   if (!userDocSnap.exists()) {
+  //     await setDoc(userDocRef, {
+  //       displayName,
+  //       boxShadowCode,
+  //     })
+  //   } else {
+  //     await updateDoc(userDocRef, {
+  //       boxShadowCode,
+  //     })
+  //   }
 
-    alert('登録されました。')
-  }
+  //   alert('登録されました。')
+  // }
 
   return (
     <main>
@@ -108,8 +108,8 @@ const BoxShadow = () => {
                       <div className='btn-box d-flex justify-content-between p-1 pt-2'>
                         <p className='ms-2'>sample.css</p>
                         <div className='d-flex'>
-                          <button className='mx-1' onClick={copyToClipBoard}>copy</button>
-                          <button onClick={sendFavBoxShadow}>お気に入り</button>
+                          {/* <button className='mx-1' onClick={copyToClipBoard}>copy</button>
+                          <button onClick={sendFavBoxShadow}>お気に入り</button> */}
                         </div>
                       </div>
                       <div className='css-box p-2'>
