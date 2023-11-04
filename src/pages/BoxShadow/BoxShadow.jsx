@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import './BoxShadow.scss'
-import { AuthContext } from '../../Context/AuthContext';
+import { AuthContext } from '../../context/AuthContext';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../api/firebase';
 import Prism from "prismjs";
