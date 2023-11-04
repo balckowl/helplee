@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
 import './BoxShadow.scss'
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../api/firebase';
