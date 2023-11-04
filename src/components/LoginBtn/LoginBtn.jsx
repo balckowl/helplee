@@ -1,9 +1,18 @@
 import React from 'react'
-import './LoginBtn.module.scss'
+import './LoginBtn.scss'
+import { signInWithPopup } from 'firebase/auth'
+import { auth, provider } from '../../../api/firebase'
 
 const LoginBtn = () => {
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+  }
+
   return (
-    <div>LoginBtn</div>
+    <div className="align-self-center d-none d-sm-block text-white">
+      <p onClick={signInWithGoogle}>Login</p>
+    </div>
   )
 }
 

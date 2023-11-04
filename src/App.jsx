@@ -6,10 +6,13 @@ import LinerGradient from './pages/LinerGradient/LinerGradient'
 import TextShadow from './pages/TextShadow/TextShadow'
 import QRCode from './pages/QRCode/QRCode'
 import MyPage from './pages/MyPage/MyPage'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/boxshadow" element={<BoxShadow />} />
@@ -18,6 +21,7 @@ function App() {
         <Route path="/qrcode" element={<QRCode />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
