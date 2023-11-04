@@ -21,10 +21,6 @@ const BoxShadow = () => {
   const [color, setColor] = useState('#000000')
   const boxShadowCode = `${shadowX}px ${shadowY}px ${blur}px ${color}`
 
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [boxShadowCode]);
-
   const boxShadowStyle = css({
     width: "170px",
     height: "170px",
