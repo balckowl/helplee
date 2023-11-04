@@ -12,7 +12,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="top-name align-self-center fs-2">
-            <a className="navbar-brand" href="#">Helpee</a>
+            <a className="navbar-brand" href="#">Helplee</a>
           </div>
         </div>
         <p className='text-center text-white'>&copy; 激辛フルーツ 2023</p>
