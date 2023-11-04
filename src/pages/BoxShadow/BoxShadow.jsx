@@ -99,7 +99,7 @@ const BoxShadow = () => {
                       </div>
                       <div className='col-lg-4 order-lg-2 order-1 mb-2 mb-lg-0 p-0'>
                         <div className="d-flex justify-content-center style-box">
-                          <div css={boxShadowStyle}></div>
+                          {/* <div css={boxShadowStyle}></div> */}
                         </div>
                       </div>
                     </div>
