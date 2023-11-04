@@ -4,11 +4,6 @@ import { css } from '@emotion/react'
 import './BoxShadow.scss'
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../api/firebase';
-import Prism from 'prismjs';
-import 'prismjs/plugins/toolbar/prism-toolbar'
-import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
-import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 import { AuthContext } from '../../context/AuthContext';
 
 const BoxShadow = () => {
