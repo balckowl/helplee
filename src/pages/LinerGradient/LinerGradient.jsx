@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import './LinerGradient.scss'
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../../api/firebase';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import Prism from "prismjs";
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 
@@ -72,11 +72,11 @@ const LinerGradient = () => {
     if (!userDocSnap.exists()) {
       await setDoc(userDocRef, {
         displayName,
-        LinerGradient: `liner-gradient(${generateGradientString()})`,
+        LinerGradient: [`liner-gradient(${generateGradientString()})`],
       })
     } else {
       await updateDoc(userDocRef, {
-        LinerGradient: `liner-gradient(${generateGradientString()})`,
+        LinerGradient: arrayUnion(`liner-gradient(${generateGradientString()})`),
       })
     }
 

@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { css } from '@emotion/react'
 import './BoxShadow.scss'
 import { AuthContext } from '../../context/AuthContext';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../api/firebase';
 import Prism from "prismjs";
 import 'prismjs/plugins/toolbar/prism-toolbar'
@@ -52,11 +52,11 @@ const BoxShadow = () => {
     if (!userDocSnap.exists()) {
       await setDoc(userDocRef, {
         displayName,
-        boxShadowCode,
+        BoxShadow: [`box-shadow: ${boxShadowCode}`],
       })
     } else {
       await updateDoc(userDocRef, {
-        boxShadowCode,
+        BoxShadow: arrayUnion(`box-shadow: ${boxShadowCode}`),
       })
     }
 

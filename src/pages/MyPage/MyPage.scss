@@ -1,0 +1,52 @@
+.box {
+    border-radius: 0px 0px 10px 10px;
+}
+
+.my-ac h3 {
+    color: black;
+}
+
+.my-ac img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.code-box {
+    background-color: #F8FAFC;
+    border-left: 2px solid #b8bbbc;
+}
+
+.select-box {
+    background-color: #F8FAFC;
+    border-radius: 10px;
+    border: 2px solid #b8bbbc;
+}
+
+.select-box :hover {
+    background-color: #90EE90;
+    border-radius: 8px;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    padding: .5em .7em;
+    color: #000000;
+    margin: auto;
+}
+
+.heading::before {
+    display: inline-block;
+    width: 5px;
+    height: 1.5em;
+    margin-right: .5em;
+    background-color: #90EE90;
+    content: '';
+}
+
+.save-box{
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #b8bbbc;
+}

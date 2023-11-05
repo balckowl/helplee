@@ -1,9 +1,164 @@
-import React from 'react'
-import './MyPage.module.scss'
+import React, { useContext, useEffect, useState } from 'react'
+import './MyPage.scss'
+import { AuthContext } from '../../context/AuthContext';
+import { db } from '../../../api/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 const MyPage = () => {
+
+  const [judge, setJudge] = useState(1);
+  const { user } = useContext(AuthContext);
+  const [cssData, setCssData] = useState(null);
+
+  const getFavCSS = async () => {
+    const { uid } = user
+
+    const docRef = doc(db, "user", uid);
+
+    try {
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        // ドキュメントが存在する場合
+        const data = docSnap.data();
+        setCssData(data)
+
+      } else {
+        // ドキュメントが存在しない場合
+        console.log("ドキュメントが存在しません。");
+      }
+    } catch (error) {
+      console.error("ドキュメントの取得中にエラーが発生しました:", error);
+    }
+  }
+
+  useEffect(() => {
+    getFavCSS()
+  }, [])
+
+
   return (
-    <div>MyPage</div>
+    <main>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-11">
+            <div className="box-head p-2 ps-3">
+              <h2 className='text-white'>My Page</h2>
+            </div>
+            <div className="row g-0">
+              <div className="col-lg-3 bg-white">
+                <div className="text-center">
+                  <div className="my-ac my-4">
+                    {user &&
+                      <>
+                        <img src={user.photoURL} alt="" />
+                        <h3 className='mt-2'>{user.displayName}</h3>
+                      </>
+                    }
+                  </div>
+                  <div className='row g-0 justify-content-center'>
+                    <div className="col-11">
+                      <div className="select-box mb-3" onClick={() => setJudge(1)}>
+                        <p className='p-2'>liner-gradient</p>
+                      </div>
+                      <div className="select-box my-3" onClick={() => setJudge(2)}>
+                        <p className='p-2'>box-shadow</p>
+                      </div>
+                      <div className="select-box my-3" onClick={() => setJudge(3)}>
+                        <p className='p-2'>text-shadow</p>
+                      </div>
+                      <div className="select-box my-3" onClick={() => setJudge(4)}>
+                        <p className='p-2'>img-filter-generater</p>
+                      </div>
+                      {/* <div className="select-box my-3" onClick={() => setJudge(5)}>
+                        <p className='p-2'>QRcode-generater</p>
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-9 code-box">
+                {judge == 1 ? (<>
+                  <h2 className='heading'>liner-gradient</h2>
+                  <div className="row justify-content-center">
+                    <div className="col-11">
+                      {cssData && cssData.LinerGradient.map((css) => (
+                        <div className="save-box p-2 my-3">
+                          {css}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+                ) : (<></>)}
+                {judge == 2 ? (<>
+                  <h2 className='heading'>box-shadow</h2>
+                  <div className="row justify-content-center">
+                    <div className="col-11">
+                      {cssData && cssData.BoxShadow.map((css) => (
+                        <div className="save-box p-2 my-3">
+                          {css}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+                ) : (<></>)}
+                {judge == 3 ? (<>
+                  <h2 className='heading'>text-shadow</h2>
+                  <div className="row justify-content-center">
+                    <div className="col-11">
+                      {cssData && cssData.TextShadow.map((css) => (
+                        <div className="save-box p-2 my-3">
+                          {css}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+                ) : (<></>)}
+                {judge == 4 ? (<>
+                  <h2 className='heading'>img-filter-generater</h2>
+                  <div className="row justify-content-center">
+                    <div className="col-11">
+                      {cssData && cssData.ImgFilter.map((css) => (
+                        <div className="save-box p-2 my-3">
+                          {css}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+                ) : (<></>)}
+                {/* {judge == 5 ? (<>
+                  <h2 className='heading'>QRcode-generater</h2>
+                  <div className="row justify-content-center">
+                    <div className="col-11">
+                      <div className="save-box p-2 my-3">
+                        code
+                      </div>
+                      <div className="save-box p-2 my-3">
+                        code
+                      </div>
+                      <div className="save-box p-2 my-3">
+                        code
+                      </div>
+                      <div className="save-box p-2 my-3">
+                        code
+                      </div>
+                      <div className="save-box p-2 my-3">
+                        code
+                      </div>
+                    </div>
+                  </div>
+                </>
+                ) : (<></>)}*/}
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   )
 }
 
