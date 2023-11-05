@@ -145,7 +145,7 @@ const LinerGradient = () => {
                             <div>
                               <h3>カラー</h3>
                               <p>{CF.color}</p>
-                              <input type="color" value={CF.color} onChange={(e) => updateColorField(index, 'color', e.target.value)} />
+                              <input className='color-input' type="color" value={CF.color} onChange={(e) => updateColorField(index, 'color', e.target.value)} />
                             </div>
 
                             <div>
