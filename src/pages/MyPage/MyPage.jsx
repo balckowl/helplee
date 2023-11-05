@@ -30,8 +30,7 @@ const MyPage = () => {
         setCssData(data)
 
       } else {
-        // ドキュメントが存在しない場合
-        console.log("ドキュメントが存在しません。");
+        setCssData(null);
       }
     } catch (error) {
       console.error("ドキュメントの取得中にエラーが発生しました:", error);
@@ -85,7 +84,6 @@ const MyPage = () => {
     }
   }, [user])
 
-
   return (
     <main>
       <CommonMeta title="helplee | MyPage" />
@@ -95,7 +93,7 @@ const MyPage = () => {
             <div className="box-head p-2 ps-3">
               <h2 className='text-white'>My Page</h2>
             </div>
-            {user ? (<div className="row g-0">
+            {user ? (cssData ? (<div className="row g-0">
               <div className="col-lg-3 bg-white">
                 <div className="text-center">
                   <div className="my-ac my-4">
@@ -226,8 +224,12 @@ const MyPage = () => {
               </div>
             </div>) : (
               <div className='bg-white non-userscreen d-flex justify-content-center align-items-center'>
-                <h2>Userがいません。</h2>
+                <h2>まだ一度もデータが保存されたことがありません。</h2>
               </div>
+            )) : (
+            <div className='bg-white non-userscreen d-flex justify-content-center align-items-center'>
+              <h2>Userがいません。</h2>
+            </div>
             )}
           </div>
         </div>
