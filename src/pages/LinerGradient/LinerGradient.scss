@@ -7,19 +7,24 @@
 .liner-box {
     border: 3px solid #ffffff;
     border-radius: 5px;
-    background-color: rgba(255,255,255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
-.liner-box p{
+.liner-box p {
     font-size: 20px;
 }
 
-.handle-filed{
+.color-input {
+    width: 50px;
+    height: 50px;
+}
+
+.handle-filed {
     height: auto;
 }
 
-.handle-filed p{
-   font-size: 25px;
+.handle-filed p {
+    font-size: 25px;
 }
 
 .delite {
@@ -34,6 +39,6 @@
     border-radius: 5px;
 }
 
-.btn-box{
-   padding: 3px 10px;
+.btn-box {
+    padding: 3px 10px;
 }
