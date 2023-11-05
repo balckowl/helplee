@@ -83,12 +83,17 @@ const LinerGradient = () => {
           displayName,
           LinerGradient: [`liner-gradient(${generateGradientString()})`],
         })
+        alert('登録されました。')
       } else {
-        await updateDoc(userDocRef, {
-          LinerGradient: arrayUnion(`liner-gradient(${generateGradientString()})`),
-        })
+        if (userDocSnap.data().LinerGradient.length >= 3) {
+          alert("３つ以上は登録できません。")
+        } else {
+          await updateDoc(userDocRef, {
+            LinerGradient: arrayUnion(`liner-gradient(${generateGradientString()})`),
+          })
+          alert('登録されました。')
+        }
       }
-      alert('登録されました。')
     } else {
       signInWithGoogle()
     }

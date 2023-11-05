@@ -113,12 +113,17 @@ const ImgFilter = () => {
                     displayName,
                     ImgFilter: [imgFilterString()],
                 })
+                alert('登録されました。')
             } else {
-                await updateDoc(userDocRef, {
-                    ImgFilter: arrayUnion(imgFilterString()),
-                })
+                if (userDocSnap.data().ImgFilter.length >= 3) {
+                    alert("３つ以上は登録できません。")
+                } else {
+                    await updateDoc(userDocRef, {
+                        ImgFilter: arrayUnion(imgFilterString()),
+                    })
+                    alert('登録されました。')
+                }
             }
-            alert('登録されました。')
         } else {
             signInWithGoogle()
         }

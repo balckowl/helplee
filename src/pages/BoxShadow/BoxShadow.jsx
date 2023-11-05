@@ -61,13 +61,17 @@ const BoxShadow = () => {
           displayName,
           BoxShadow: [`box-shadow: ${boxShadowCode}`],
         })
+        alert('登録されました。')
       } else {
-        await updateDoc(userDocRef, {
-          BoxShadow: arrayUnion(`box-shadow: ${boxShadowCode}`),
-        })
+        if (userDocSnap.data().BoxShadow.length >= 3) {
+          alert("３つ以上は登録できません。")
+        } else {
+          await updateDoc(userDocRef, {
+            BoxShadow: arrayUnion(`box-shadow: ${boxShadowCode}`),
+          })
+          alert('登録されました。')
+        }
       }
-
-      alert('登録されました。')
     } else {
       signInWithGoogle()
     }

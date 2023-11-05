@@ -107,16 +107,16 @@ const MyPage = () => {
                   <div className='row g-0 justify-content-center'>
                     <div className="col-11">
                       <div className="select-box mb-3" onClick={() => setJudge(1)}>
-                        <p className='p-2'>liner-gradient</p>
+                        <p className='p-2'>Liner-Gradient</p>
                       </div>
                       <div className="select-box my-3" onClick={() => setJudge(2)}>
-                        <p className='p-2'>box-shadow</p>
+                        <p className='p-2'>Box-Shadow</p>
                       </div>
                       <div className="select-box my-3" onClick={() => setJudge(3)}>
-                        <p className='p-2'>text-shadow</p>
+                        <p className='p-2'>Text-Shadow</p>
                       </div>
                       <div className="select-box my-3" onClick={() => setJudge(4)}>
-                        <p className='p-2'>img-filter-generater</p>
+                        <p className='p-2'>Image-Filter</p>
                       </div>
                       {/* <div className="select-box my-3" onClick={() => setJudge(5)}>
                         <p className='p-2'>QRcode-generater</p>
@@ -127,7 +127,7 @@ const MyPage = () => {
               </div>
               <div className="col-lg-9 code-box">
                 {judge == 1 ? (<>
-                  <h2 className='heading'>liner-gradient</h2>
+                  <h2 className='heading'>Liner-Gradient</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
                       {cssData.LinerGradient && cssData.LinerGradient.map((css, index) => (
@@ -145,7 +145,7 @@ const MyPage = () => {
                 </>
                 ) : (<></>)}
                 {judge == 2 ? (<>
-                  <h2 className='heading'>box-shadow</h2>
+                  <h2 className='heading'>Box-Shadow</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
                       {cssData.BoxShadow && cssData.BoxShadow.map((css, index) => (
@@ -163,7 +163,7 @@ const MyPage = () => {
                 </>
                 ) : (<></>)}
                 {judge == 3 ? (<>
-                  <h2 className='heading'>text-shadow</h2>
+                  <h2 className='heading'>Text-Shadow</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
                       {cssData.TextShadow && cssData.TextShadow.map((css, index) => (
@@ -181,7 +181,7 @@ const MyPage = () => {
                 </>
                 ) : (<></>)}
                 {judge == 4 ? (<>
-                  <h2 className='heading'>img-filter-generater</h2>
+                  <h2 className='heading'>Image-Filter</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
                       {cssData.ImgFilter && cssData.ImgFilter.map((css, index) => (

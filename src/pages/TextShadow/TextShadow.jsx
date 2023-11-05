@@ -57,12 +57,17 @@ const TextShadow = () => {
           displayName,
           TextShadow: [`text-shadow: ${textShadowCode}`],
         })
+        alert('登録されました。')
       } else {
-        await updateDoc(userDocRef, {
-          TextShadow: arrayUnion(`text-shadow: ${textShadowCode}`),
-        })
+        if (userDocSnap.data().TextShadow.length >= 3) {
+          alert("３つ以上は登録できません。")
+        } else {
+          await updateDoc(userDocRef, {
+            TextShadow: arrayUnion(`text-shadow: ${textShadowCode}`),
+          })
+          alert('登録されました。')
+        }
       }
-      alert('登録されました。')
     } else {
       signInWithGoogle()
     }
