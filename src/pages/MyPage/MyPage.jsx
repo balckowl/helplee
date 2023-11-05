@@ -3,10 +3,15 @@ import './MyPage.scss'
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../../api/firebase';
 import { arrayRemove, doc, getDoc, updateDoc } from 'firebase/firestore';
+import Prism from 'prismjs';
+import 'prismjs/plugins/toolbar/prism-toolbar'
+import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
+import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 
 const MyPage = () => {
 
-  const [judge, setJudge] = useState(1);
+  const [judge, setJudge] = useState();
   const { user } = useContext(AuthContext);
   const [cssData, setCssData] = useState(null);
 
@@ -38,15 +43,44 @@ const MyPage = () => {
 
     try {
       // Firestoreの配列から要素を削除する
-      await updateDoc(docRef, {
-        LinerGradient: arrayRemove(cssToDelete),
-      });
+
+      if (judge == 1) {
+        await updateDoc(docRef, {
+          LinerGradient: arrayRemove(cssToDelete),
+        });
+      }
+
+      if (judge == 2) {
+        await updateDoc(docRef, {
+          BoxShadow: arrayRemove(cssToDelete),
+        });
+      }
+
+      if (judge == 3) {
+        await updateDoc(docRef, {
+          TextShadow: arrayRemove(cssToDelete),
+        });
+      }
+
+      if(judge == 4){
+        await updateDoc(docRef, {
+          ImgFilter: arrayRemove(cssToDelete),
+        });
+      }
       // 再度データを取得して表示を更新
       getFavCSS();
     } catch (error) {
       console.error("要素の削除中にエラーが発生しました:", error);
     }
   }
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [judge]);
+
+  useEffect(() => {
+    setJudge(1)
+  }, [])
 
   useEffect(() => {
     if (user) {
@@ -100,9 +134,13 @@ const MyPage = () => {
                   <h2 className='heading'>liner-gradient</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.LinerGradient.map((css) => (
-                        <div className="save-box p-2 my-3">
-                          {css}
+                      {cssData && cssData.LinerGradient.map((css, index) => (
+                        <div key={index}>
+                          <pre>
+                            <code className='language-css'>
+                              {css}
+                            </code>
+                          </pre>
                           <button onClick={() => DeleteFavData(css)}>削除</button>
                         </div>
                       ))}
@@ -114,9 +152,14 @@ const MyPage = () => {
                   <h2 className='heading'>box-shadow</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.BoxShadow.map((css) => (
-                        <div className="save-box p-2 my-3">
-                          {css}
+                      {cssData && cssData.BoxShadow.map((css, index) => (
+                        <div key={index}>
+                          <pre>
+                            <code className='language-css'>
+                              {css}
+                            </code>
+                          </pre>
+                          <button onClick={() => DeleteFavData(css)}>削除</button>
                         </div>
                       ))}
                     </div>
@@ -127,9 +170,14 @@ const MyPage = () => {
                   <h2 className='heading'>text-shadow</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.TextShadow.map((css) => (
-                        <div className="save-box p-2 my-3">
-                          {css}
+                      {cssData && cssData.TextShadow.map((css, index) => (
+                        <div key={index}>
+                          <pre>
+                            <code className='language-css'>
+                              {css}
+                            </code>
+                          </pre>
+                          <button onClick={() => DeleteFavData(css)}>削除</button>
                         </div>
                       ))}
                     </div>
@@ -140,9 +188,14 @@ const MyPage = () => {
                   <h2 className='heading'>img-filter-generater</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.ImgFilter.map((css) => (
-                        <div className="save-box p-2 my-3">
-                          {css}
+                      {cssData && cssData.ImgFilter.map((css, index) => (
+                        <div key={index}>
+                          <pre>
+                            <code className='language-css'>
+                              {css}
+                            </code>
+                          </pre>
+                          <button onClick={() => DeleteFavData(css)}>削除</button>
                         </div>
                       ))}
                     </div>
