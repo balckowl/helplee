@@ -9,7 +9,7 @@ import Prism from "prismjs";
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 import CommonMeta from '../../components/CommonMeta/CommonMeta';
 import { signInWithPopup } from 'firebase/auth';
-import LoginBtn from '../../components/LoginBtn/LoginBtn';
+
 
 const LinerGradient = () => {
 
@@ -89,7 +89,7 @@ const LinerGradient = () => {
         })
       }
       alert('登録されました。')
-    }else{
+    } else {
       signInWithGoogle()
     }
   }
@@ -107,11 +107,11 @@ const LinerGradient = () => {
               <div className="row justify-content-center">
                 <div className="col-lg-11">
                   <div className="p-2 mb-3">
-                    <div className='btn-box d-flex justify-content-between p-1 pt-2'>
-                      <p className='ms-2'>sample.css</p>
-                      <div className='d-flex'>
-                        <button className='mx-1' onClick={copyToClipBoard}>copy</button>
-                        <button onClick={sendFavLinerGradient}>お気に入り</button>
+                    <div className='btn-box d-flex justify-content-between'>
+                      <p>sample.css</p>
+                      <div className='d-flex gap-3'>
+                        <div onClick={copyToClipBoard}><i class="bi bi-clipboard"></i></div>
+                        <div onClick={sendFavLinerGradient} className='favbtn'><i class="bi bi-star-fill"></i></div>
                       </div>
                     </div>
                     <div className='css-box p-2'>
@@ -129,24 +129,25 @@ const LinerGradient = () => {
                       <div className="col-lg-3 d-flex align-items-center justify-content-center"><p>{degree}deg</p></div>
                       <div className="col-lg-4 d-flex align-items-center justify-content-center"><input type="range" value={degree} min="-180" max="180" onChange={(e) => setDegree(e.target.value)} /></div>
                     </div>
-
                   </div>
 
                   <div className="row g-0 gap-0 mx-2">
                     {colorFields.map((CF, index) => (
                       <div className='my-2 col-lg-3 liner-box p-1' key={index}>
-                        <h3>colorField{index + 1}</h3>
                         <div>
+                          <h3>colorField{index + 1}</h3>
                           <div>
-                            <h3>カラー</h3>
-                            <p>{CF.color}</p>
-                            <input type="color" value={CF.color} onChange={(e) => updateColorField(index, 'color', e.target.value)} />
-                          </div>
+                            <div>
+                              <h3>カラー</h3>
+                              <p>{CF.color}</p>
+                              <input type="color" value={CF.color} onChange={(e) => updateColorField(index, 'color', e.target.value)} />
+                            </div>
 
-                          <div>
-                            <h3>終始位置</h3>
-                            <p>{CF.endPoint}%</p>
-                            <input type="range" value={CF.endPoint} onChange={(e) => updateColorField(index, 'endPoint', e.target.value)} />
+                            <div>
+                              <h3>終始位置</h3>
+                              <p>{CF.endPoint}%</p>
+                              <input type="range" value={CF.endPoint} onChange={(e) => updateColorField(index, 'endPoint', e.target.value)} />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -154,13 +155,17 @@ const LinerGradient = () => {
 
 
                     <div className='col-lg-1 my-2'>
-                      <div onClick={removeColorField} className="delite d-flex align-items-center justify-content-center">
-                        <p>ー</p>
+                      <div>
+                        <div onClick={removeColorField} className="delite d-flex align-items-center justify-content-center">
+                          <p>ー</p>
+                        </div>
                       </div>
                     </div>
                     <div onClick={addColorField} className='col-lg-1 my-2'>
-                      <div className="next d-flex align-items-center justify-content-center">
-                        <p>＋</p>
+                      <div>
+                        <div className="next d-flex align-items-center justify-content-center">
+                          <p>＋</p>
+                        </div>
                       </div>
                     </div>
 

@@ -67,7 +67,7 @@ const BoxShadow = () => {
 
   return (
     <main>
-      <CommonMeta title="helplee | Box-Shadow"/>
+      <CommonMeta title="helplee | Box-Shadow" />
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-11">
@@ -119,11 +119,11 @@ const BoxShadow = () => {
                     </div>
 
                     <div className="p-2 mb-3">
-                      <div className='btn-box d-flex justify-content-between p-1 pt-2'>
-                        <p className='ms-2'>sample.css</p>
-                        <div className='d-flex'>
-                          <div className='mx-1' onClick={copyToClipBoard}>copy</div>
-                          <button onClick={sendFavBoxShadow}>お気に入り</button>
+                      <div className='btn-box d-flex justify-content-between'>
+                        <p>sample.css</p>
+                        <div className='d-flex gap-3'>
+                          <div onClick={copyToClipBoard}><i class="bi bi-clipboard"></i></div>
+                          <div onClick={sendFavBoxShadow} className='favbtn'><i class="bi bi-star-fill"></i></div>
                         </div>
                       </div>
                       <div className='css-box p-2'>

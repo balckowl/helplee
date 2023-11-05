@@ -7,10 +7,10 @@ const Home = () => {
   return (
     <main>
       <CommonMeta title='helplee' />
-      
+
       <div className="container">
         <div className="row gy-5 py-3">
-          <div className="col-sm-4">
+          <div className="col-sm-6 col-lg-4">
             <div className="card">
               <div className="card-body">
                 <Link to="/linergradient">
@@ -23,7 +23,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-6 col-lg-4">
             <div className="card">
               <div className="card-body">
                 <Link to="/boxshadow">
@@ -36,7 +36,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-6 col-lg-4">
             <div className="card">
               <div className="card-body">
                 <Link to="/textshadow">
@@ -49,7 +49,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className='col-sm-4'>
+          <div className='col-sm-6 col-lg-4'>
             <div className="card">
               <div className="card-body">
                 <Link to="/imgfilter">
@@ -62,7 +62,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-6 col-lg-4">
             <div className="card">
               <div className="card-body">
                 <Link to="/qrcode">
