@@ -1,4 +1,3 @@
-import React from 'react'
 import React, { useState } from 'react'
 import './QR.scss'
 import QRCode from 'qrcode.react'
