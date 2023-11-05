@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import './MyPage.scss'
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../../api/firebase';
@@ -77,10 +77,6 @@ const MyPage = () => {
   useEffect(() => {
     Prism.highlightAll();
   }, [judge]);
-
-  useEffect(() => {
-    setJudge(1)
-  }, [])
 
   useEffect(() => {
     if (user) {

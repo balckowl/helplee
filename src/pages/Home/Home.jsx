@@ -1,10 +1,17 @@
 import React from 'react'
 import './Home.scss'
 import { Link } from 'react-router-dom'
+import CommonMeta from '../../components/CommonMeta/CommonMeta'
 
 const Home = () => {
   return (
     <main>
+      <CommonMeta
+        title="css generater"
+        imgUrl="/images/helplee.png"
+        description="webサイトを構築するときに助けになるようなサイトとなっています。"
+      />
+
       <div className="container">
         <div className="row gy-5 py-3">
           <div className="col-sm-4">
