@@ -10,6 +10,7 @@ import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
+import CommonMeta from '../../components/CommonMeta/CommonMeta';
 
 const TextShadow = () => {
 
@@ -61,6 +62,7 @@ const TextShadow = () => {
 
   return (
     <main>
+      <CommonMeta title="helplee | Text-Shadow" />
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-11">

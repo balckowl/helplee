@@ -8,6 +8,7 @@ import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
+import CommonMeta from '../../components/CommonMeta/CommonMeta';
 
 const MyPage = () => {
 
@@ -62,7 +63,7 @@ const MyPage = () => {
         });
       }
 
-      if(judge == 4){
+      if (judge == 4) {
         await updateDoc(docRef, {
           ImgFilter: arrayRemove(cssToDelete),
         });
@@ -87,6 +88,7 @@ const MyPage = () => {
 
   return (
     <main>
+      <CommonMeta title="helplee | MyPage" />
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-11">

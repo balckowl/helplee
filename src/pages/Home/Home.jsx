@@ -2,25 +2,12 @@ import React from 'react'
 import './Home.scss'
 import { Link } from 'react-router-dom'
 import CommonMeta from '../../components/CommonMeta/CommonMeta'
-import { Helmet } from 'react-helmet-async'
 
 const Home = () => {
   return (
     <main>
-      <Helmet
-        title={'helplee'}
-        meta={[
-          { name: 'description', content: 'webサイトを作る際にアシストしてくれるようなサイトを作りました。' },
-          { property: 'og:title', content: 'helplee' },
-          { property: 'og:type', content: 'website' },
-          { property: 'og:url', content: 'https://helplee.vercel.app/'},
-          { property: 'og:image', content: 'https://helplee.vercel.app/helplee.png' },
-          { property: 'og:description', content: 'webサイトを作る際にアシストしてくれるようなサイトを作りました。'},
-          { name: 'twitter:card', content: 'summary_large_image' },
-          { name: 'twitter:image', content: 'https://helplee.vercel.app/helplee.png' },
-        ]}
-      />
-
+      <CommonMeta title='helplee' />
+      
       <div className="container">
         <div className="row gy-5 py-3">
           <div className="col-sm-4">

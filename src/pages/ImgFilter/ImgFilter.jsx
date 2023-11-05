@@ -7,6 +7,7 @@ import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../../../api/firebase'
 import Prism from "prismjs";
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
+import CommonMeta from '../../components/CommonMeta/CommonMeta'
 
 const ImgFilter = () => {
 
@@ -117,6 +118,8 @@ const ImgFilter = () => {
 
     return (
         <main>
+            <CommonMeta title='helplee | Img-Filter' />
+
             <div className="container">
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-11">

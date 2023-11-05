@@ -7,6 +7,7 @@ import { db } from '../../../api/firebase';
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import Prism from "prismjs";
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
+import CommonMeta from '../../components/CommonMeta/CommonMeta';
 
 const LinerGradient = () => {
 
@@ -85,6 +86,7 @@ const LinerGradient = () => {
 
   return (
     <main>
+      <CommonMeta title="helplee | Liner-Gradient"/>
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-11">
