@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@600&family=Montserrat:ital,wght@1,600&family=Noto+Sans+JP&display=swap');
+
+.card-body{
+    font-family: 'Chivo', sans-serif;
+}
+
+.card-icon img{
+    width: 200px;
+}
+
+.card {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    background-color: white;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 0%;
+        height: 100%;
+        background-color: #90EE90;
+        transition: .5s;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+}

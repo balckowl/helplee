@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import './MyPage.scss'
 import { AuthContext } from '../../context/AuthContext';
 import { db } from '../../../api/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { arrayRemove, doc, getDoc, updateDoc } from 'firebase/firestore';
 
 const MyPage = () => {
 
@@ -32,9 +32,27 @@ const MyPage = () => {
     }
   }
 
+  const DeleteFavData = async (cssToDelete) => {
+    const { uid } = user;
+    const docRef = doc(db, "user", uid);
+
+    try {
+      // Firestoreの配列から要素を削除する
+      await updateDoc(docRef, {
+        LinerGradient: arrayRemove(cssToDelete),
+      });
+      // 再度データを取得して表示を更新
+      getFavCSS();
+    } catch (error) {
+      console.error("要素の削除中にエラーが発生しました:", error);
+    }
+  }
+
   useEffect(() => {
-    getFavCSS()
-  }, [])
+    if (user) {
+      getFavCSS()
+    }
+  }, [user])
 
 
   return (
@@ -45,7 +63,7 @@ const MyPage = () => {
             <div className="box-head p-2 ps-3">
               <h2 className='text-white'>My Page</h2>
             </div>
-            <div className="row g-0">
+            {user ? (<div className="row g-0">
               <div className="col-lg-3 bg-white">
                 <div className="text-center">
                   <div className="my-ac my-4">
@@ -85,6 +103,7 @@ const MyPage = () => {
                       {cssData && cssData.LinerGradient.map((css) => (
                         <div className="save-box p-2 my-3">
                           {css}
+                          <button onClick={() => DeleteFavData(css)}>削除</button>
                         </div>
                       ))}
                     </div>
@@ -153,8 +172,12 @@ const MyPage = () => {
                   </div>
                 </>
                 ) : (<></>)}*/}
-              </div> 
-            </div>
+              </div>
+            </div>) : (
+              <div className='bg-white non-userscreen d-flex justify-content-center align-items-center'>
+                <h2>Userがいません。</h2>
+              </div>
+            )}
           </div>
         </div>
       </div>

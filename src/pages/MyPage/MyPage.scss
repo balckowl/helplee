@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@600&family=Montserrat:ital,wght@1,600&family=Noto+Sans+JP&display=swap');
+
 .box {
     border-radius: 0px 0px 10px 10px;
+}
+
+.box-head h2{
+    font-family: 'Chivo', sans-serif;
 }
 
 .my-ac h3 {
@@ -49,4 +55,9 @@
     background-color: white;
     border-radius: 10px;
     border: 2px solid #b8bbbc;
+}
+
+/*この画面のログアウトされた場合*/
+.non-userscreen{
+    height: 500px;
 }

@@ -1,0 +1,39 @@
+.box-head {
+    background-color: #1B0E38;
+    color: #90EE90;
+    border-bottom: 4px solid #90EE90;
+}
+
+.box {
+    border-radius: 0px 0px 10px 10px;
+}
+
+.img-style-box {
+    background-color: #F8FAFC;
+    border-radius: 10px;
+    border: 2px solid #b8bbbc;
+}
+
+.img-input-box {
+    background-color: #F8FAFC;
+    border-radius: 10px;
+    border: 2px solid #b8bbbc;
+}
+
+.img-input-box p {
+    font-size: 20px;
+}
+
+.code-box{
+    position: relative;
+}
+
+.file-name{
+    font-size: 4px;
+    padding: 5px 10px;
+    position: absolute;
+    top: -10px;
+    left: 7.5px;
+    background-color: #eee;
+    display: inline-block;
+}

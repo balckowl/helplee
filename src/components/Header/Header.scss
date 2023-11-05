@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@600&family=Montserrat:ital,wght@1,600&family=Noto+Sans+JP&display=swap');
+
 header {
     background-color: #1B0E38;
     box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.4);
@@ -9,6 +11,8 @@ header {
 
 .top-name {
     color: white;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 700;
 }
 
 .top-icon {

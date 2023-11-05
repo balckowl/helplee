@@ -65,7 +65,7 @@ const TextShadow = () => {
         <div className="row d-flex justify-content-center">
           <div className="col-lg-11">
             <div className="box-head p-2 ps-3">
-              <h2 className='text-white'>text-shadow</h2>
+              <h2 className='text-white'>Text-Shadow</h2>
             </div>
             <div className='bg-white box'>
               <div className="row justify-content-center px-1 g-0">

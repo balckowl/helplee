@@ -89,7 +89,7 @@ const LinerGradient = () => {
         <div className="row d-flex justify-content-center">
           <div className="col-lg-11">
             <div className="box-head p-2 ps-3">
-              <h2 className='text-white'>liner-gradient</h2>
+              <h2 className='text-white'>Liner-Gradient</h2>
             </div>
             <div className='bg-white box' css={linerGradientStyle}>
               <div className="row justify-content-center">

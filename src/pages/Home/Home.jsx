@@ -11,9 +11,9 @@ const Home = () => {
             <div className="card">
               <div className="card-body">
                 <Link to="/linergradient">
-                  <h3 className="card-title">liner-gradient</h3>
+                  <h3 className="card-title">Liner-Gradient</h3>
                   <div className="card-icon text-center">
-                    <img src="/images/liner-gradient-icon.png" alt="" />
+                    <img src="/images/Liner-Gradient-icon.png" alt="" />
                   </div>
                   <p className="card-text"></p>
                 </Link>
@@ -24,7 +24,7 @@ const Home = () => {
             <div className="card">
               <div className="card-body">
                 <Link to="/boxshadow">
-                  <h3 className="card-title">box-shadow</h3>
+                  <h3 className="card-title">Box-Shadow</h3>
                   <div className="card-icon text-center">
                     <img src="/images/Box-Shadow-icon.png" alt="" />
                   </div>
@@ -37,9 +37,9 @@ const Home = () => {
             <div className="card">
               <div className="card-body">
                 <Link to="/textshadow">
-                  <h3 className="card-title">text-shadow</h3>
+                  <h3 className="card-title">Text-Shadow</h3>
                   <div className="card-icon text-center">
-                    <img src="/images/text-shadow-icon.png" alt="" />
+                    <img src="/images/Text-Shadow-icon.png" alt="" />
                   </div>
                   <p className="card-text"></p>
                 </Link>
@@ -50,9 +50,9 @@ const Home = () => {
             <div className="card">
               <div className="card-body">
                 <Link to="/imgfilter">
-                  <h3 className="card-title">image-filter-generater</h3>
+                  <h3 className="card-title">Image-Filter</h3>
                   <div className="card-icon text-center">
-                    <img src="/images/image-filter-generater-icon.png" alt="" />
+                    <img src="/images/Img-Filter-icon.png" alt="" />
                   </div>
                   <p className="card-text"></p>
                 </Link>
@@ -63,9 +63,9 @@ const Home = () => {
             <div className="card">
               <div className="card-body">
                 <Link to="/qrcode">
-                  <h3 className="card-title">QRcode-generater</h3>
+                  <h3 className="card-title">QRcode-Generater</h3>
                   <div className="card-icon text-center">
-                    <img src="/images/qrcode-generater-icon.png" alt="" />
+                    <img src="/images/QRCode-icon.png" alt="" />
                   </div>
                   <p className="card-text"></p>
                 </Link>

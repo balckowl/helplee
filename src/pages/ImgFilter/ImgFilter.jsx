@@ -121,7 +121,7 @@ const ImgFilter = () => {
                 <div className="row d-flex justify-content-center">
                     <div className="col-lg-11">
                         <div className="box-head p-2 ps-3">
-                            <h2 className='text-white'>image-filter-generater</h2>
+                            <h2 className='text-white'>Image-Filter</h2>
                         </div>
                         <div className="bg-white box">
                             <div className="row justify-content-center px-1 g-0">
