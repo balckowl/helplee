@@ -7,8 +7,9 @@ const Home = () => {
   return (
     <main>
       <CommonMeta
-        title="css generater"
-        imgUrl="/images/helplee.png"
+        title="helplee"
+        imgUrl="https://helplee.vercel.app/images/helplee.png"
+        type='website'
         description="webサイトを構築するときに助けになるようなサイトとなっています。"
       />
 
