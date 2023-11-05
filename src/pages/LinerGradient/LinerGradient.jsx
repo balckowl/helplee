@@ -115,8 +115,8 @@ const LinerGradient = () => {
                     <div className='btn-box d-flex justify-content-between'>
                       <p>sample.css</p>
                       <div className='d-flex gap-3'>
-                        <div onClick={copyToClipBoard}><i class="bi bi-clipboard"></i></div>
-                        <div onClick={sendFavLinerGradient} className='favbtn'><i class="bi bi-star-fill"></i></div>
+                        <div onClick={copyToClipBoard}><i className="bi bi-clipboard"></i></div>
+                        <div onClick={sendFavLinerGradient} className='favbtn'><i className="bi bi-star-fill"></i></div>
                       </div>
                     </div>
                     <div className='css-box p-2'>

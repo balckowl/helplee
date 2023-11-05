@@ -203,7 +203,7 @@ const ImgFilter = () => {
                                         <div className="col-lg-5 order-lg-2 order-1 mb-2 mb-lg-0">
                                             <div className='d-flex justify-content-center'>
                                                 <div className="img-style-box p-4">
-                                                    <img src="https://picsum.photos/800/800" alt="" css={imgFilterStyle} />
+                                                    <img src="/images/sample-img.jpg" alt="" css={imgFilterStyle} />
                                                 </div>
                                             </div>
                                         </div>
@@ -213,8 +213,8 @@ const ImgFilter = () => {
                                         <div className='btn-box d-flex justify-content-between'>
                                             <p>sample.css</p>
                                             <div className='d-flex gap-3'>
-                                                <div onClick={copyToClipBoard}><i class="bi bi-clipboard"></i></div>
-                                                <div onClick={sendImgFilter} className='favbtn'><i class="bi bi-star-fill"></i></div>
+                                                <div onClick={copyToClipBoard}><i className="bi bi-clipboard"></i></div>
+                                                <div onClick={sendImgFilter} className='favbtn'><i className="bi bi-star-fill"></i></div>
                                             </div>
                                         </div>
                                         <div className='css-box p-2'>
