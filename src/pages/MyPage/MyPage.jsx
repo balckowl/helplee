@@ -132,7 +132,7 @@ const MyPage = () => {
                   <h2 className='heading'>liner-gradient</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.LinerGradient.map((css, index) => (
+                      {cssData.LinerGradient && cssData.LinerGradient.map((css, index) => (
                         <div key={index}>
                           <pre>
                             <code className='language-css'>
@@ -150,7 +150,7 @@ const MyPage = () => {
                   <h2 className='heading'>box-shadow</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.BoxShadow.map((css, index) => (
+                      {cssData.BoxShadow && cssData.BoxShadow.map((css, index) => (
                         <div key={index}>
                           <pre>
                             <code className='language-css'>
@@ -168,7 +168,7 @@ const MyPage = () => {
                   <h2 className='heading'>text-shadow</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.TextShadow.map((css, index) => (
+                      {cssData.TextShadow && cssData.TextShadow.map((css, index) => (
                         <div key={index}>
                           <pre>
                             <code className='language-css'>
@@ -186,7 +186,7 @@ const MyPage = () => {
                   <h2 className='heading'>img-filter-generater</h2>
                   <div className="row justify-content-center">
                     <div className="col-11">
-                      {cssData && cssData.ImgFilter.map((css, index) => (
+                      {cssData.ImgFilter && cssData.ImgFilter.map((css, index) => (
                         <div key={index}>
                           <pre>
                             <code className='language-css'>
