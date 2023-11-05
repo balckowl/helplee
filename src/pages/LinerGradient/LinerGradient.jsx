@@ -3,11 +3,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import { css } from '@emotion/react'
 import './LinerGradient.scss'
 import { AuthContext } from '../../context/AuthContext';
-import { db } from '../../../api/firebase';
+import { auth, db, provider } from '../../../api/firebase';
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import Prism from "prismjs";
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 import CommonMeta from '../../components/CommonMeta/CommonMeta';
+import { signInWithPopup } from 'firebase/auth';
+import LoginBtn from '../../components/LoginBtn/LoginBtn';
 
 const LinerGradient = () => {
 
@@ -56,37 +58,45 @@ const LinerGradient = () => {
 
   const copyToClipBoard = async () => {
     try {
-      await navigator.clipboard.writeText(boxShadowCode);
+      await navigator.clipboard.writeText(`linear-gradient(${generateGradientString()})`);
       alert('コピーされました。');
     } catch (error) {
       console.error('コピーに失敗しました。', error);
     }
   }
 
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+  }
+
   const sendFavLinerGradient = async () => {
-    const { uid, displayName } = user;
 
-    const userDocRef = doc(db, "user", uid);
+    if (user) {
+      const { uid, displayName } = user;
 
-    const userDocSnap = await getDoc(userDocRef);
+      const userDocRef = doc(db, "user", uid);
 
-    if (!userDocSnap.exists()) {
-      await setDoc(userDocRef, {
-        displayName,
-        LinerGradient: [`liner-gradient(${generateGradientString()})`],
-      })
-    } else {
-      await updateDoc(userDocRef, {
-        LinerGradient: arrayUnion(`liner-gradient(${generateGradientString()})`),
-      })
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (!userDocSnap.exists()) {
+        await setDoc(userDocRef, {
+          displayName,
+          LinerGradient: [`liner-gradient(${generateGradientString()})`],
+        })
+      } else {
+        await updateDoc(userDocRef, {
+          LinerGradient: arrayUnion(`liner-gradient(${generateGradientString()})`),
+        })
+      }
+      alert('登録されました。')
+    }else{
+      signInWithGoogle()
     }
-
-    alert('登録されました。')
   }
 
   return (
     <main>
-      <CommonMeta title="helplee | Liner-Gradient"/>
+      <CommonMeta title="helplee | Liner-Gradient" />
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-11">
