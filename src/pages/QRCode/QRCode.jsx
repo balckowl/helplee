@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './QRcode.scss'
 import QRCode from 'qrcode.react'
 
-const QRCode = () => {
+const QRcode = () => {
 
   const [url, setURL] = useState('https://example.com')
   const [bgColor, setBgColor] = useState("#FFFFFF")
@@ -85,4 +85,4 @@ const QRCode = () => {
   )
 }
 
-export default QRCode
+export default QRcode
