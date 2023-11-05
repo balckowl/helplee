@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { css } from '@emotion/react'
 import './TextShadow.scss'
 import { AuthContext } from '../../context/AuthContext';
-import { db } from '../../../api/firebase';
+import { auth, db, provider } from '../../../api/firebase';
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import Prism from 'prismjs'
 import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
@@ -11,6 +11,7 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 import CommonMeta from '../../components/CommonMeta/CommonMeta';
+import { signInWithPopup } from 'firebase/auth';
 
 const TextShadow = () => {
 
@@ -39,25 +40,32 @@ const TextShadow = () => {
     }
   }
 
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+  }
+
   const sendFavTextShadow = async () => {
-    const { uid, displayName } = user;
+    if (user) {
+      const { uid, displayName } = user;
 
-    const userDocRef = doc(db, "user", uid);
+      const userDocRef = doc(db, "user", uid);
 
-    const userDocSnap = await getDoc(userDocRef);
+      const userDocSnap = await getDoc(userDocRef);
 
-    if (!userDocSnap.exists()) {
-      await setDoc(userDocRef, {
-        displayName,
-        TextShadow: [`text-shadow: ${textShadowCode}`],
-      })
+      if (!userDocSnap.exists()) {
+        await setDoc(userDocRef, {
+          displayName,
+          TextShadow: [`text-shadow: ${textShadowCode}`],
+        })
+      } else {
+        await updateDoc(userDocRef, {
+          TextShadow: arrayUnion(`text-shadow: ${textShadowCode}`),
+        })
+      }
+      alert('登録されました。')
     } else {
-      await updateDoc(userDocRef, {
-        TextShadow: arrayUnion(`text-shadow: ${textShadowCode}`),
-      })
+      signInWithGoogle()
     }
-
-    alert('登録されました。')
   }
 
   return (

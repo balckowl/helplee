@@ -4,13 +4,14 @@ import { css } from '@emotion/react'
 import './BoxShadow.scss'
 import { AuthContext } from '../../context/AuthContext';
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
-import { db } from '../../../api/firebase';
+import { auth, db, provider } from '../../../api/firebase';
 import Prism from "prismjs";
 import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/toolbar/prism-toolbar.min.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.min.css'
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 import CommonMeta from '../../components/CommonMeta/CommonMeta';
+import { signInWithPopup } from 'firebase/auth';
 
 const BoxShadow = () => {
 
@@ -43,25 +44,33 @@ const BoxShadow = () => {
     }
   }
 
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+  }
+
   const sendFavBoxShadow = async () => {
-    const { uid, displayName } = user;
+    if (user) {
+      const { uid, displayName } = user;
 
-    const userDocRef = doc(db, "user", uid);
+      const userDocRef = doc(db, "user", uid);
 
-    const userDocSnap = await getDoc(userDocRef);
+      const userDocSnap = await getDoc(userDocRef);
 
-    if (!userDocSnap.exists()) {
-      await setDoc(userDocRef, {
-        displayName,
-        BoxShadow: [`box-shadow: ${boxShadowCode}`],
-      })
+      if (!userDocSnap.exists()) {
+        await setDoc(userDocRef, {
+          displayName,
+          BoxShadow: [`box-shadow: ${boxShadowCode}`],
+        })
+      } else {
+        await updateDoc(userDocRef, {
+          BoxShadow: arrayUnion(`box-shadow: ${boxShadowCode}`),
+        })
+      }
+
+      alert('登録されました。')
     } else {
-      await updateDoc(userDocRef, {
-        BoxShadow: arrayUnion(`box-shadow: ${boxShadowCode}`),
-      })
+      signInWithGoogle()
     }
-
-    alert('登録されました。')
   }
 
 

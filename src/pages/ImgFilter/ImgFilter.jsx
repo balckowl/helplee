@@ -4,10 +4,11 @@ import { css } from '@emotion/react'
 import './ImgFilter.scss'
 import { AuthContext } from '../../context/AuthContext'
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
-import { db } from '../../../api/firebase'
+import { auth, db, provider } from '../../../api/firebase'
 import Prism from "prismjs";
 import 'prism-themes/themes/prism-vsc-dark-plus.min.css'
 import CommonMeta from '../../components/CommonMeta/CommonMeta'
+import { signInWithPopup } from 'firebase/auth'
 
 const ImgFilter = () => {
 
@@ -91,29 +92,36 @@ const ImgFilter = () => {
         }
     }
 
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, provider)
+    }
+
     const sendImgFilter = async () => {
-        const { uid, displayName } = user;
+        if (user) {
+            const { uid, displayName } = user;
 
-        const userDocRef = doc(db, "user", uid);
+            const userDocRef = doc(db, "user", uid);
 
-        const userDocSnap = await getDoc(userDocRef);
+            const userDocSnap = await getDoc(userDocRef);
 
-        if (!imgFilterString()) {
-            alert('パラメータが変更されていません。')
-        }
+            if (!imgFilterString()) {
+                alert('パラメータが変更されていません。')
+            }
 
-        if (!userDocSnap.exists()) {
-            await setDoc(userDocRef, {
-                displayName,
-                ImgFilter: [imgFilterString()],
-            })
+            if (!userDocSnap.exists()) {
+                await setDoc(userDocRef, {
+                    displayName,
+                    ImgFilter: [imgFilterString()],
+                })
+            } else {
+                await updateDoc(userDocRef, {
+                    ImgFilter: arrayUnion(imgFilterString()),
+                })
+            }
+            alert('登録されました。')
         } else {
-            await updateDoc(userDocRef, {
-                ImgFilter: arrayUnion(imgFilterString()),
-            })
+            signInWithGoogle()
         }
-
-        alert('登録されました。')
     }
 
     return (
