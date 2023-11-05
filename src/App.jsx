@@ -4,7 +4,7 @@ import Home from './pages/Home/Home'
 import BoxShadow from './pages/BoxShadow/BoxShadow'
 import LinerGradient from './pages/LinerGradient/LinerGradient'
 import TextShadow from './pages/TextShadow/TextShadow'
-import QRCode from './pages/QRCode/QRCode'
+import QRcode from './pages/QRcode/QRcode'
 import MyPage from './pages/MyPage/MyPage'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
@@ -20,7 +20,7 @@ function App() {
         <Route path="/linergradient" element={<LinerGradient />} />
         <Route path="/textshadow" element={<TextShadow />} />
         <Route path="/imgfilter" element={<ImgFilter />} />
-        <Route path="/qrcode" element={<QRCode />} />
+        <Route path="/qrcode" element={<QRcode />} />
         <Route path="/mypage" element={<MyPage />} />
       </Routes>
       <Footer />
